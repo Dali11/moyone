@@ -17,7 +17,7 @@ export function AboutTeam() {
             <p className="section-label">Our team</p>
             <h2 className="mt-2 text-3xl font-black leading-tight tracking-tight">Young leaders.<br />Stronger communities.</h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">Our team brings together young people with diverse skills and a shared commitment to creating opportunities for youth in Malawi.</p>
-            <a href="mailto:mobileyouthnetwork@gmail.com?subject=MOYONE%20Team" className="mt-4 inline-flex items-center rounded-full bg-[var(--moyone-green)] px-5 py-3 text-xs font-bold text-white transition hover:bg-[var(--moyone-green-dark)]">Contact the team</a>
+            <a href="/contact#inquiry" className="mt-4 inline-flex items-center rounded-full bg-[var(--moyone-green)] px-5 py-3 text-xs font-bold text-white transition hover:bg-[var(--moyone-green-dark)]">Contact the team</a>
           </div>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-5">
             {teamProfiles.map(({ name, role, image }) => (

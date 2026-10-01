@@ -21,7 +21,7 @@ export function ProgramDetail({ program }: { program: Program }) {
             <p className="section-label">Our programs</p>
             <h1 className="mt-2 text-4xl font-black leading-tight tracking-tight sm:text-5xl">{program.title}</h1>
             <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">{program.text}</p>
-            <a href="/#contact" className="mt-6 inline-flex items-center gap-2 rounded-md bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-green-dark)]">
+            <a href="/contact#inquiry" className="mt-6 inline-flex items-center gap-2 rounded-md bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-green-dark)]">
               Partner with us <ArrowRight size={16} />
             </a>
           </div>

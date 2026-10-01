@@ -12,7 +12,7 @@ const links = [
   ["Projects", "/projects"],
   ["Impact", "/#impact"],
   ["Stories", "/stories"],
-  ["Contact", "/#contact"],
+  ["Contact", "/contact"],
 ];
 
 function isActiveNavItem(label: string, pathname: string) {
@@ -21,6 +21,7 @@ function isActiveNavItem(label: string, pathname: string) {
   if (label === "Programs") return pathname.startsWith("/programs");
   if (label === "Projects") return pathname.startsWith("/projects");
   if (label === "Stories") return pathname.startsWith("/stories");
+  if (label === "Contact") return pathname.startsWith("/contact");
   return false;
 }
 
@@ -52,7 +53,7 @@ export function SiteHeader() {
               </a>
             );
           })}
-          <a href="/#contact" className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[var(--moyone-green-dark)] px-4 py-2.5 text-[12px] font-bold text-white transition hover:bg-[var(--moyone-green)]">Partner With Us <ArrowRight size={15} /></a>
+          <a href="/contact#inquiry" className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[var(--moyone-green-dark)] px-4 py-2.5 text-[12px] font-bold text-white transition hover:bg-[var(--moyone-green)]">Partner With Us <ArrowRight size={15} /></a>
         </nav>
 
         <button aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)} className="grid h-11 w-11 place-items-center rounded-full bg-slate-100 lg:hidden">
@@ -75,7 +76,7 @@ export function SiteHeader() {
               </a>
             );
           })}
-          <a href="/#contact" onClick={() => setOpen(false)} className="mt-2 rounded-xl bg-[var(--moyone-green)] px-4 py-3 text-center font-bold text-white">Partner With Us</a>
+          <a href="/contact#inquiry" onClick={() => setOpen(false)} className="mt-2 rounded-xl bg-[var(--moyone-green)] px-4 py-3 text-center font-bold text-white">Partner With Us</a>
         </div>
       </nav>}
     </header>
