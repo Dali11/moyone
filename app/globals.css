@@ -33,20 +33,32 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .hero-photo {
-  background-image: url("/images/hero.png");
   background-size: cover;
   background-position: center 43%;
   background-repeat: no-repeat;
 }
 
 .hero-shade {
-  background: linear-gradient(90deg, rgba(4, 24, 17, .78) 0%, rgba(4, 24, 17, .63) 31%, rgba(4, 24, 17, .24) 57%, rgba(4, 24, 17, .02) 78%);
+  background: linear-gradient(
+    90deg,
+    rgba(4, 24, 17, 0.82) 0%,
+    rgba(4, 24, 17, 0.68) 34%,
+    rgba(4, 24, 17, 0.3) 62%,
+    rgba(4, 24, 17, 0.08) 100%
+  );
 }
 
 @media (max-width: 640px) {
-  .hero-photo { background-position: 59% center; }
-  .hero-shade { background: linear-gradient(90deg, rgba(4, 24, 17, .78), rgba(4, 24, 17, .48) 68%, rgba(4, 24, 17, .24)); }
+  .hero-shade {
+    background: linear-gradient(
+      180deg,
+      rgba(4, 24, 17, 0.56) 0%,
+      rgba(4, 24, 17, 0.6) 35%,
+      rgba(4, 24, 17, 0.78) 100%
+    );
+  }
 }
+  .hero-shade { background: linear-gradient(90deg, rgba(4, 24, 17, .78), rgba(4, 24, 17, .48) 68%, rgba(4, 24, 17, .24)); }
 
 .noise::after {
   content: "";

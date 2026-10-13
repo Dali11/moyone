@@ -27,7 +27,7 @@ export function ProjectDetail({ project }: { project: Project }) {
             </div>
           </div>
           <div className="relative aspect-[1.45] overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
-            <Image src={project.image} alt={project.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
+            <Image src={project.image === "/images/projects/back-to-school-concept.png" ? "/api/media/program/education" : project.image} alt={project.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
             <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-2.5 py-1 text-[10px] font-semibold text-white">Illustrative concept image</span>
           </div>
         </header>

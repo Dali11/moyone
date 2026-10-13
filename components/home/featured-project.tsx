@@ -1,32 +1,99 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, BookOpen, MapPin } from "lucide-react";
 
 export function FeaturedProject() {
   return (
-    <section id="projects" className="border-y border-slate-200 bg-[#fbfcfa] py-8 sm:py-10">
-      <div className="container-moyone grid gap-6 lg:grid-cols-[.98fr_1.02fr] lg:items-center lg:gap-8">
-        <div className="group relative aspect-[1.55] overflow-hidden rounded-xl bg-slate-200 shadow-sm">
-          <Image
-            src="/images/projects/back-to-school-concept.png"
-            alt="Illustrative concept: a volunteer gives schoolbooks to learners"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover transition duration-500 group-hover:scale-[1.02]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" aria-hidden="true" />
-          <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-2.5 py-1 text-[10px] font-semibold text-white">Illustrative concept image</span>
+    <section
+      aria-labelledby="featured-project-title"
+      className="border-y border-slate-200 bg-[#fbfcfa] py-12 sm:py-16 lg:py-20"
+    >
+      <div className="container-moyone">
+        <div className="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="section-label">Our work in action</p>
+            <h2 className="mt-2 text-2xl font-black tracking-tight text-[var(--moyone-ink)] sm:text-3xl">
+              Projects making a difference
+            </h2>
+          </div>
+          <Link
+            href="/projects"
+            className="inline-flex w-fit items-center gap-2 py-2 text-sm font-bold text-[var(--moyone-green)] transition hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)]"
+          >
+            Explore our projects
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
 
-        <div className="relative">
-          <p className="section-label">Featured project</p>
-          <h2 className="mt-1 text-3xl font-black tracking-tight sm:text-[32px]">Back to School Initiative</h2>
-          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-600">
-            <span className="inline-flex items-center gap-1.5"><MapPin size={15} className="text-[var(--moyone-green)]" /> Mangochi</span>
-            <span className="inline-flex items-center gap-1.5"><BookOpen size={15} className="text-[var(--moyone-green)]" /> Education</span>
+        <article className="grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-2">
+          <div className="relative min-h-[250px] overflow-hidden bg-emerald-50 sm:min-h-[360px] lg:min-h-[420px]">
+            <Image
+              src="/api/media/program/education"
+              alt="Illustrative concept of a volunteer distributing school materials to learners"
+              fill
+              priority={false}
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 hover:scale-[1.02]"
+            />
+            <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-3 py-1.5 text-[10px] font-semibold tracking-wide text-white">
+              Illustrative concept image
+            </span>
           </div>
-          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600">We encourage children to attend school and help learners stay engaged through education campaigns, school materials and career guidance. From 2021 to 2025, we supported more than 800 learners through our Back to School activities.</p>
-          <a href="/projects/back-to-school-initiative" className="mt-5 inline-flex items-center gap-2 rounded-md bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-green-dark)]">Read the Full Story <ArrowRight size={16}/></a>
-        </div>
+
+          <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10 xl:p-12">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--moyone-green)]">
+              Project spotlight
+            </p>
+
+            <h3
+              id="featured-project-title"
+              className="mt-3 max-w-lg text-3xl font-black leading-tight tracking-tight text-[var(--moyone-ink)] sm:text-4xl"
+            >
+              Back to School Initiative
+            </h3>
+
+            <div className="mt-5 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-semibold text-slate-700">
+                <MapPin
+                  size={15}
+                  className="text-[var(--moyone-green)]"
+                  aria-hidden="true"
+                />
+                Mangochi, Malawi
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-semibold text-slate-700">
+                <BookOpen
+                  size={15}
+                  className="text-[var(--moyone-green)]"
+                  aria-hidden="true"
+                />
+                Education
+              </span>
+            </div>
+
+            <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+              Every child deserves an opportunity to learn. Through back-to-school
+              activities, school-material support and career guidance, MOYONE
+              works to encourage school attendance and help learners stay
+              engaged in their education.
+            </p>
+
+            <p className="mt-3 max-w-xl text-sm leading-7 text-slate-600">
+              From 2021 to 2025, MOYONE reported supporting more than 800 learners
+              through its Back to School activities.
+            </p>
+
+            <div className="mt-7">
+              <Link
+                href="/projects/back-to-school-initiative"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-green-dark)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)] sm:w-fit"
+              >
+                Explore this project
+                <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   );
