@@ -3,9 +3,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { GetInvolvedSection, SiteFooter } from "@/components/home/get-involved-section";
-import { stories } from "@/lib/stories";
+import { getPublishedStories } from "@/lib/stories";
 
-export function StoryList() {
+export async function StoryList() {
+  const stories = await getPublishedStories();
+
   return (
     <main>
       <SiteHeader />
@@ -26,7 +28,7 @@ export function StoryList() {
                   <p className="section-label">{story.subject}</p>
                   <h2 className="mt-2 text-xl font-extrabold text-slate-900">{story.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-slate-600">{story.text}</p>
-                  <p className="mt-2 text-[10px] text-slate-400">Illustrative image</p>
+                  
                   <Link href={`/stories/${story.slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-green)] hover:underline">
                     Read update <ArrowRight size={16} />
                   </Link>

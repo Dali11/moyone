@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { stories } from "@/lib/stories";
+import { getPublishedStories } from "@/lib/stories";
 
-export function StoriesSection() {
+export async function StoriesSection() {
+  const stories = await getPublishedStories();
+
   return (
     <section id="stories" className="border-y border-slate-200 bg-[#fbfcfa] py-12 sm:py-14">
       <div className="container-moyone">
@@ -25,7 +27,6 @@ export function StoriesSection() {
                 <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">{subject}</p>
                 <Link href={`/stories/${slug}`} className="mt-1 block text-sm font-extrabold leading-tight hover:text-[var(--moyone-green)]">{title}</Link>
                 <p className="mt-1.5 text-[11px] leading-[1.4] text-slate-600">{text}</p>
-                <p className="mt-1 text-[9px] text-slate-400">Illustrative image</p>
               </div>
             </article>
           ))}

@@ -1,24 +1,56 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { sql } from "@/lib/db/client";
 import { StoryDetail } from "@/components/stories/story-detail";
-import { stories } from "@/lib/stories";
+import {
+  getPublishedStoryBySlug,
+  getPublishedStories,
+} from "@/lib/stories";
 
-export function generateStaticParams() {
-  return stories.map(({ slug }) => ({ slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/stories/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  const story = await getPublishedStoryBySlug(slug);
+
+  return story
+    ? {
+        title: `${story.title} | MOYONE`,
+        description: story.text,
+      }
+    : {
+        title: "Story not found | MOYONE",
+      };
 }
 
-export async function generateMetadata({ params }: PageProps<"/stories/[slug]">): Promise<Metadata> {
+export default async function StoryPage({
+  params,
+}: PageProps<"/stories/[slug]">) {
   const { slug } = await params;
-  const story = stories.find((item) => item.slug === slug);
+  const story = await getPublishedStoryBySlug(slug);
 
-  return story ? { title: `${story.title} | MOYONE`, description: story.text } : { title: "Story not found | MOYONE" };
-}
+  if (!story) {
+    notFound();
+  }
 
-export default async function StoryPage({ params }: PageProps<"/stories/[slug]">) {
-  const { slug } = await params;
-  const story = stories.find((item) => item.slug === slug);
+  const galleryRows = await sql`
+    SELECT id, alt_text, caption
+    FROM story_images
+    WHERE story_id = (
+      SELECT id FROM stories
+      WHERE slug = ${slug} AND status = 'published'
+      LIMIT 1
+    )
+    ORDER BY sort_order ASC, id ASC
+  `;
 
-  if (!story) notFound();
+  const gallery = galleryRows.map((row) => ({
+    id: String(row.id),
+    alt: String(row.alt_text || ""),
+    caption: String(row.caption || ""),
+  }));
 
-  return <StoryDetail story={story} />;
+  return <StoryDetail story={story} gallery={gallery} />;
 }

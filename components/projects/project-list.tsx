@@ -3,48 +3,155 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { projects } from "@/lib/projects";
 import { SiteHeader } from "@/components/site-header";
-import { GetInvolvedSection, SiteFooter } from "@/components/home/get-involved-section";
+import {
+  GetInvolvedSection,
+  SiteFooter,
+} from "@/components/home/get-involved-section";
 
 export function ProjectList() {
   return (
     <main>
       <SiteHeader />
-      <section className="bg-[#fbfcfa] py-12 sm:py-16">
-        <div className="container-moyone">
-          <p className="section-label">Our work</p>
-          <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">Projects</h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-            We work alongside young people and communities in Mangochi to create opportunities, build skills and make lasting change. Explore the initiatives that bring our mission to life.
-          </p>
-          <p className="mt-3 max-w-2xl text-xs leading-5 text-slate-500">
-            The images below are illustrative concepts created to show the activities each project focuses on. We will replace them with photographs of our work when those images are available.
-          </p>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {projects.map((project) => (
-              <article key={project.slug} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                <Link href={`/projects/${project.slug}`} className="group block">
-                  <div className="relative aspect-[1.8] overflow-hidden bg-slate-100">
-                    <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
-                    <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-2.5 py-1 text-[10px] font-semibold text-white">Illustrative concept</span>
-                  </div>
-                  <div className="p-5 sm:p-6">
-                    <p className="section-label">{project.program}</p>
-                    <h2 className="mt-2 text-xl font-extrabold text-slate-900">{project.title}</h2>
-                    <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500">
-                      <span className="inline-flex items-center gap-1.5"><MapPin size={14} />{project.location}</span>
-                    </div>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{project.summary}</p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-green)]">
-                      Explore this work <ArrowRight size={16} />
-                    </span>
-                  </div>
-                </Link>
-              </article>
-            ))}
+      <section className="overflow-hidden bg-[#fbfcfa]">
+        <div className="container-moyone pb-12 pt-12 sm:pb-16 sm:pt-16 lg:pb-20 lg:pt-20">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="max-w-3xl">
+              <p className="section-label">From our communities</p>
+
+              <h1 className="mt-3 text-4xl font-black leading-[1.08] tracking-tight text-[var(--moyone-ink)] sm:text-5xl lg:text-6xl">
+                Turning community action into{" "}
+                <span className="text-[var(--moyone-green)]">
+                  lasting change.
+                </span>
+              </h1>
+
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                Explore how MOYONE works with young people, families and
+                communities in Mangochi to create opportunities, strengthen
+                skills and support sustainable development.
+              </p>
+            </div>
+
+            <a
+              href="#our-projects"
+              className="inline-flex min-h-12 w-fit items-center justify-center gap-2 rounded-lg bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)]"
+            >
+              Explore our work
+              <ArrowRight size={17} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-slate-200 pt-5 text-sm text-slate-600 sm:mt-12">
+            <span className="font-bold text-[var(--moyone-ink)]">
+              Our focus areas
+            </span>
+            <span>Education</span>
+            <span>Health & wellbeing</span>
+            <span>Youth empowerment</span>
+            <span>Environment</span>
+            <span>Livelihoods</span>
           </div>
         </div>
       </section>
+
+      <section
+        id="our-projects"
+        aria-labelledby="projects-heading"
+        className="bg-white py-12 sm:py-16 lg:py-20"
+      >
+        <div className="container-moyone">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="section-label">Our initiatives</p>
+              <h2
+                id="projects-heading"
+                className="mt-2 text-3xl font-black tracking-tight text-[var(--moyone-ink)] sm:text-4xl"
+              >
+                Explore our projects
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
+                Each initiative reflects an area of work through which we
+                engage young people and support community-led development.
+              </p>
+            </div>
+
+            <p className="text-sm font-semibold text-slate-500">
+              {projects.length} initiatives
+            </p>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 sm:gap-6">
+            {projects.map((project, index) => {
+              const image = project.image;
+              const isIllustrative = false;
+
+              return (
+                <article
+                  key={project.slug}
+                  className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl"
+                >
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="flex h-full flex-col rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[var(--moyone-green)]"
+                    aria-label={`Explore ${project.title}`}
+                  >
+                    <div className="relative aspect-[1.65/1] overflow-hidden bg-emerald-50">
+                      <Image
+                        src={image}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+
+                      {isIllustrative && (
+                        <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-3 py-1.5 text-[10px] font-semibold tracking-wide text-white">
+                          Illustrative concept
+                        </span>
+                      )}
+
+                      <span className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-white/95 text-[var(--moyone-green)] shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                        <ArrowRight size={18} aria-hidden="true" />
+                      </span>
+                    </div>
+
+                    <div className="flex flex-1 flex-col p-5 sm:p-6">
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--moyone-green)]">
+                        {project.program}
+                      </p>
+
+                      <h3 className="mt-2 text-xl font-extrabold leading-snug tracking-tight text-[var(--moyone-ink)] transition-colors group-hover:text-[var(--moyone-green)]">
+                        {project.title}
+                      </h3>
+
+                      <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">
+                        {project.summary}
+                      </p>
+
+                      <div className="mt-5 flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
+                        <span className="inline-flex min-w-0 items-center gap-1.5 text-xs font-medium text-slate-500">
+                          <MapPin
+                            size={14}
+                            className="shrink-0 text-[var(--moyone-green)]"
+                            aria-hidden="true"
+                          />
+                          <span>{project.location}</span>
+                        </span>
+
+                        <span className="shrink-0 text-xs font-bold text-[var(--moyone-green)]">
+                          Explore project
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <GetInvolvedSection />
       <SiteFooter />
     </main>

@@ -1,0 +1,198 @@
+import Link from "next/link";
+import { sql } from "@/lib/db/client";
+import { auth } from "@/auth";
+import { changeStoryStatus } from "@/lib/admin/story-actions";
+
+export const dynamic = "force-dynamic";
+
+export default async function AdminStoriesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string; status?: string; category?: string }>;
+}) {
+  const session = await auth();
+  const canEdit =
+    session?.user?.role === "super_admin" ||
+    session?.user?.role === "editor";
+
+  const filters = await searchParams;
+  const q = (filters.q ?? "").trim().slice(0, 100);
+  const status = ["draft", "published", "archived"].includes(filters.status ?? "")
+    ? filters.status!
+    : "";
+  const category = (filters.category ?? "").trim().slice(0, 100);
+
+  const rows = await sql`
+    SELECT id, slug, title, excerpt, category, status, updated_at
+    FROM stories
+    WHERE (${q} = '' OR title ILIKE ${"%" + q + "%"} OR slug ILIKE ${"%" + q + "%"})
+      AND (${status} = '' OR status = ${status})
+      AND (${category} = '' OR category ILIKE ${category})
+    ORDER BY updated_at DESC NULLS LAST, created_at DESC
+  `;
+
+  const counts = await sql`
+    SELECT
+      COUNT(*)::int AS total,
+      COUNT(*) FILTER (WHERE status = 'published')::int AS published,
+      COUNT(*) FILTER (WHERE status = 'draft')::int AS drafts,
+      COUNT(*) FILTER (WHERE status = 'archived')::int AS archived
+    FROM stories
+  `;
+
+  const summary = counts[0] as {
+    total: number;
+    published: number;
+    drafts: number;
+    archived: number;
+  };
+
+  return (
+    <section className="mx-auto max-w-7xl">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800">
+            Content management
+          </p>
+          <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-900">
+            Stories
+          </h1>
+          <p className="mt-2 text-sm text-slate-500">
+            Create, update and publish community stories.
+          </p>
+        </div>
+        {canEdit && (
+          <Link
+            href="/admin/stories/new"
+            className="rounded-xl bg-emerald-800 px-5 py-3 text-center text-sm font-bold text-white hover:bg-emerald-900"
+          >
+            + New story
+          </Link>
+        )}
+      </div>
+
+      <div className="mt-7 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {[
+          ["Total stories", summary.total],
+          ["Published", summary.published],
+          ["Drafts", summary.drafts],
+          ["Archived", summary.archived],
+        ].map(([label, count]) => (
+          <div key={String(label)} className="rounded-2xl border border-slate-200 bg-white p-5">
+            <p className="text-sm text-slate-500">{label}</p>
+            <p className="mt-2 text-3xl font-black text-slate-900">{count}</p>
+          </div>
+        ))}
+      </div>
+
+      <form className="mt-7 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:grid-cols-[1fr_180px_180px_auto]">
+        <input
+          name="q"
+          defaultValue={q}
+          placeholder="Search titles or slugs…"
+          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-emerald-700"
+        />
+        <select
+          name="status"
+          defaultValue={status}
+          className="rounded-xl border border-slate-300 px-3 py-3 text-sm"
+        >
+          <option value="">All statuses</option>
+          <option value="published">Published</option>
+          <option value="draft">Drafts</option>
+          <option value="archived">Archived</option>
+        </select>
+        <input
+          name="category"
+          defaultValue={category}
+          placeholder="Exact category"
+          className="rounded-xl border border-slate-300 px-4 py-3 text-sm"
+        />
+        <button className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">
+          Filter
+        </button>
+      </form>
+
+      <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[850px] text-left text-sm">
+            <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-5 py-4">Story</th>
+                <th className="px-5 py-4">Category</th>
+                <th className="px-5 py-4">Status</th>
+                <th className="px-5 py-4">Updated</th>
+                <th className="px-5 py-4">Actions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {rows.map((story) => (
+                <tr key={String(story.id)} className="align-top hover:bg-slate-50/70">
+                  <td className="px-5 py-4">
+                    <p className="font-bold text-slate-900">{String(story.title)}</p>
+                    <p className="mt-1 text-xs text-slate-400">{String(story.slug)}</p>
+                    <p className="mt-2 max-w-md text-xs leading-5 text-slate-500">
+                      {String(story.excerpt)}
+                    </p>
+                  </td>
+                  <td className="px-5 py-4 text-slate-600">{String(story.category)}</td>
+                  <td className="px-5 py-4">
+                    <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${
+                      story.status === "published"
+                        ? "bg-emerald-50 text-emerald-800"
+                        : story.status === "draft"
+                          ? "bg-amber-50 text-amber-800"
+                          : "bg-slate-100 text-slate-600"
+                    }`}>
+                      {String(story.status)}
+                    </span>
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-4 text-slate-500">
+                    {story.updated_at
+                      ? new Date(String(story.updated_at)).toLocaleDateString("en-GB")
+                      : "—"}
+                  </td>
+                  <td className="px-5 py-4">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+                      {canEdit && (
+                        <Link
+                          href={`/admin/stories/${story.id}/edit`}
+                          className="font-semibold text-emerald-800 hover:underline"
+                        >
+                          Edit
+                        </Link>
+                      )}
+                      {story.status === "published" && (
+                        <Link
+                          href={`/stories/${story.slug}`}
+                          target="_blank"
+                          className="font-semibold text-slate-600 hover:underline"
+                        >
+                          View ↗
+                        </Link>
+                      )}
+                      {canEdit && story.status !== "archived" && (
+                        <form action={changeStoryStatus}>
+                          <input type="hidden" name="id" value={String(story.id)} />
+                          <input type="hidden" name="status" value="archived" />
+                          <button className="font-semibold text-rose-700 hover:underline">
+                            Archive
+                          </button>
+                        </form>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {rows.length === 0 && (
+          <p className="p-10 text-center text-sm text-slate-500">
+            No stories match these filters.
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
