@@ -1,0 +1,128 @@
+[
+  {
+    "slug": "back-to-school-initiative",
+    "title": "Back to School Initiative",
+    "location": "Mangochi, Malawi",
+    "program": "Education",
+    "summary": "We help children return to school and stay engaged in learning through education campaigns, school materials and career guidance.",
+    "image": "/api/media/program/education",
+    "imageAlt": "MOYONE education volunteers engaging with learners during a back-to-school activity",
+    "overview": [
+      "We work with young people, families and communities to encourage children to attend school and help reduce school dropouts.",
+      "Our education activities include back-to-school campaigns, school-material support and career guidance. We also advocate for children’s rights and address barriers such as early and child marriage.",
+      "Our organizational profile records more than 800 learners supported through Back to School activities between 2021 and 2025."
+    ],
+    "activities": [
+      "Back-to-school awareness and education campaigns",
+      "School-material support for learners",
+      "Career guidance and education awareness",
+      "Advocacy addressing barriers to school attendance"
+    ],
+    "intendedParticipants": "School-age children, learners, families and communities working to improve access to education."
+  },
+  {
+    "slug": "youth-leadership-and-empowerment",
+    "title": "Youth Leadership & Empowerment",
+    "location": "Mangochi, Malawi",
+    "program": "Youth Empowerment",
+    "summary": "We equip young people with leadership, financial literacy and life skills, and connect them with mentorship and opportunities to take action in their communities.",
+    "image": "/api/media/program/youth-empowerment",
+    "imageAlt": "Community members participating in a youth empowerment activity",
+    "overview": [
+      "We create opportunities for young people to build confidence, develop leadership skills and contribute to decisions that affect their lives.",
+      "Our work includes mentorship, financial literacy, peer-led community action and training that helps young people explore pathways to employment and self-reliance.",
+      "Between 2021 and 2025, our organizational profile records more than 1,500 young people reached through leadership and vocational training."
+    ],
+    "activities": [
+      "Leadership development and life-skills learning",
+      "Financial-literacy education",
+      "Mentorship and peer-led community activities",
+      "Opportunities for young people to participate in community decisions"
+    ],
+    "intendedParticipants": "Young people interested in developing leadership, life skills and a stronger role in their communities."
+  },
+  {
+    "slug": "community-health-and-sanitation",
+    "title": "Community Health & Sanitation",
+    "location": "Mangochi, Malawi",
+    "program": "Health & Wellbeing",
+    "summary": "We share practical health information with communities, with activities covering cholera prevention, hygiene, safe water and reproductive health.",
+    "image": "/api/media/program/health-and-wellbeing",
+    "imageAlt": "MOYONE volunteers conducting a community health and sanitation activity",
+    "overview": [
+      "We support community awareness on health and wellbeing, including cholera prevention, hygiene promotion, safe-water practices and sexual and reproductive health.",
+      "We also provide mental-health training for youth leaders so they can better support young people in their communities.",
+      "Our organizational profile records more than 2,000 households reached through health and sanitation campaigns between 2021 and 2025."
+    ],
+    "activities": [
+      "Cholera-prevention awareness and hygiene promotion",
+      "Safe-water and sanitation education",
+      "Sexual and reproductive-health awareness",
+      "Mental-health training for youth leaders"
+    ],
+    "intendedParticipants": "Young people, households and community members who can benefit from practical health, hygiene and sanitation information."
+  },
+  {
+    "slug": "environment-and-climate-action",
+    "title": "Environmental Protection & Climate Action",
+    "location": "Mangochi, Malawi",
+    "program": "Environment",
+    "summary": "We work with young people and communities on environmental conservation, tree planting, climate-smart farming and sustainable waste management.",
+    "image": "/api/media/program/environment",
+    "imageAlt": "Community members taking part in an environmental activity",
+    "overview": [
+      "We encourage young people to take an active role in protecting the natural resources their communities depend on.",
+      "Our environmental activities include tree planting, conservation awareness, climate-smart agriculture and sustainable waste management.",
+      "We connect environmental action with practical skills and community-led solutions for a healthier, more resilient future."
+    ],
+    "activities": [
+      "Environmental conservation awareness",
+      "Tree planting and community environmental action",
+      "Climate-smart agriculture education",
+      "Sustainable waste-management awareness"
+    ],
+    "intendedParticipants": "Young people, farmers and community members interested in environmental protection and sustainable local practices."
+  },
+  {
+    "slug": "skills-and-entrepreneurship",
+    "title": "Skills Development & Entrepreneurship",
+    "location": "Mangochi, Malawi",
+    "program": "Entrepreneurship",
+    "summary": "We help young people build practical skills and explore entrepreneurship through training, financial literacy and agribusiness opportunities.",
+    "image": "/api/media/program/agriculture",
+    "imageAlt": "Community members participating in an agriculture and livelihoods activity",
+    "overview": [
+      "We provide skills development and capacity-building opportunities that help young people turn ideas into practical livelihoods.",
+      "Our activities include entrepreneurship training, financial literacy, mentorship and agribusiness. We established Moyone Farm in 2024 as part of our youth-led agriculture work.",
+      "Our organizational profile records more than 300 young people trained in entrepreneurship and agribusiness between 2021 and 2025."
+    ],
+    "activities": [
+      "Entrepreneurship and business-skills training",
+      "Financial literacy and practical livelihood skills",
+      "Agribusiness learning and youth-led enterprise opportunities",
+      "Sustainable agriculture demonstration through Moyone Farm"
+    ],
+    "intendedParticipants": "Young people exploring entrepreneurship, vocational skills, agriculture and pathways toward sustainable livelihoods."
+  },
+  {
+    "slug": "youth-participation-and-inclusion",
+    "title": "Youth Participation & Inclusion",
+    "location": "Mangochi, Malawi",
+    "program": "Civic Engagement",
+    "summary": "We support young people to understand their rights, participate in community life and help shape decisions, with inclusion at the heart of our work.",
+    "image": "/api/media/program/youth-empowerment",
+    "imageAlt": "Community members participating in a youth engagement activity",
+    "overview": [
+      "We promote youth participation through civic education, citizen-rights awareness, social accountability and opportunities to engage in community decision-making.",
+      "We use sports-based awareness activities to connect with young people, and work to make participation more inclusive for people with disabilities.",
+      "Our organizational profile records support for 15 persons with disabilities through mobility aids and health referrals, and more than 1,000 young people reached through sports-based awareness between 2021 and 2025."
+    ],
+    "activities": [
+      "Civic education and awareness of citizen rights",
+      "Social-accountability and community-participation activities",
+      "Sports-based awareness initiatives",
+      "Promotion of more inclusive participation in community life"
+    ],
+    "intendedParticipants": "Young people and community members, including people with disabilities, who should have opportunities to participate in community life and decision-making."
+  }
+]

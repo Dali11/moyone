@@ -10,14 +10,19 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import type { Project } from "@/lib/projects";
-import { projects } from "@/lib/projects";
 import { SiteHeader } from "@/components/site-header";
 import {
   GetInvolvedSection,
   SiteFooter,
 } from "@/components/home/get-involved-section";
 
-export function ProjectDetail({ project }: { project: Project }) {
+export function ProjectDetail({
+  project,
+  projects,
+}: {
+  project: Project;
+  projects: Project[];
+}) {
   const relatedProjects = projects
     .filter((item) => item.slug !== project.slug)
     .slice(0, 3);

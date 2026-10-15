@@ -2,13 +2,14 @@ import Link from "next/link";
 import { sql } from "@/lib/db/client";
 import { auth } from "@/auth";
 import { changeStoryStatus } from "@/lib/admin/story-actions";
+import { DeleteStoryButton } from "@/components/admin/stories/delete-story-button";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminStoriesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; status?: string; category?: string }>;
+  searchParams: Promise<{ q?: string; status?: string; category?: string; deleted?: string; cleanup?: string }>;
 }) {
   const session = await auth();
   const canEdit =
@@ -71,6 +72,19 @@ export default async function AdminStoriesPage({
         )}
       </div>
 
+      {filters.deleted === "1" && (
+        <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
+          Story deleted. {filters.cleanup === "failed"
+            ? "Warning: some stored image files could not be removed and may need cleanup."
+            : "Associated gallery records and stored images were cleaned up."}
+        </p>
+      )}
+      {filters.deleted === "missing" && (
+        <p className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+          That story no longer exists.
+        </p>
+      )}
+
       <div className="mt-7 grid grid-cols-2 gap-3 lg:grid-cols-4">
         {[
           ["Total stories", summary.total],
@@ -113,7 +127,96 @@ export default async function AdminStoriesPage({
         </button>
       </form>
 
-      <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      {/* Mobile layout: readable story cards */}
+      <div className="mt-5 grid gap-4 md:hidden">
+        {rows.map((story) => (
+          <article
+            key={`mobile-${String(story.id)}`}
+            className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <h2 className="break-words text-base font-bold leading-6 text-slate-900">
+                  {String(story.title)}
+                </h2>
+                <p className="mt-1 break-all text-xs text-slate-400">
+                  {String(story.slug)}
+                </p>
+              </div>
+              <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-bold ${
+                story.status === "published"
+                  ? "bg-emerald-50 text-emerald-800"
+                  : story.status === "draft"
+                    ? "bg-amber-50 text-amber-800"
+                    : "bg-slate-100 text-slate-600"
+              }`}>
+                {String(story.status)}
+              </span>
+            </div>
+
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              {String(story.excerpt)}
+            </p>
+
+            <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+              <span className="rounded-lg bg-slate-100 px-2.5 py-1.5">
+                {String(story.category)}
+              </span>
+              <span>
+                Updated: {story.updated_at
+                  ? new Date(String(story.updated_at)).toLocaleDateString("en-GB")
+                  : "—"}
+              </span>
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-slate-100 pt-3 text-sm">
+              {canEdit && (
+                <Link
+                  href={`/admin/stories/${story.id}/edit`}
+                  className="font-semibold text-emerald-800 hover:underline"
+                >
+                  Edit
+                </Link>
+              )}
+
+              {story.status === "published" && (
+                <Link
+                  href={`/stories/${story.slug}`}
+                  target="_blank"
+                  className="font-semibold text-slate-600 hover:underline"
+                >
+                  View ↗
+                </Link>
+              )}
+
+              {canEdit && story.status !== "archived" && (
+                <form action={changeStoryStatus}>
+                  <input type="hidden" name="id" value={String(story.id)} />
+                  <input type="hidden" name="status" value="archived" />
+                  <button className="font-semibold text-rose-700 hover:underline">
+                    Archive
+                  </button>
+                </form>
+              )}
+
+              {session?.user?.role === "super_admin" && (
+                <DeleteStoryButton
+                  id={String(story.id)}
+                  title={String(story.title)}
+                />
+              )}
+            </div>
+          </article>
+        ))}
+
+        {rows.length === 0 && (
+          <p className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-sm text-slate-500">
+            No stories match these filters.
+          </p>
+        )}
+      </div>
+
+      <div className="mt-5 hidden overflow-hidden rounded-2xl border border-slate-200 bg-white md:block">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[850px] text-left text-sm">
             <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
@@ -170,6 +273,9 @@ export default async function AdminStoriesPage({
                         >
                           View ↗
                         </Link>
+                      )}
+                      {session?.user?.role === "super_admin" && (
+                        <DeleteStoryButton id={String(story.id)} title={String(story.title)} />
                       )}
                       {canEdit && story.status !== "archived" && (
                         <form action={changeStoryStatus}>

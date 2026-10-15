@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
-import { projects } from "@/lib/projects";
+import { getPublishedProjects } from "@/lib/projects-db";
 import { SiteHeader } from "@/components/site-header";
 import {
   GetInvolvedSection,
   SiteFooter,
 } from "@/components/home/get-involved-section";
 
-export function ProjectList() {
+export async function ProjectList() {
+  const projects = await getPublishedProjects();
   return (
     <main>
       <SiteHeader />

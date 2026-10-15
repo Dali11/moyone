@@ -161,3 +161,119 @@ export async function changeStoryStatus(form: FormData) {
   revalidatePath("/admin");
   revalidatePath("/admin/stories");
 }
+
+export async function deleteStory(form: FormData) {
+  const session = await auth();
+
+  if (!session?.user) redirect("/admin/login");
+  if (session.user.role !== "super_admin") {
+    throw new Error("Only a super administrator can permanently delete stories.");
+  }
+
+  const id = value(form, "id", 30);
+  if (!/^\d+$/.test(id)) throw new Error("Invalid story ID.");
+
+  const found = await sql`
+    SELECT id, slug, image_object_key
+    FROM stories
+    WHERE id = ${id}
+    LIMIT 1
+  `;
+
+  if (!found.length) redirect("/admin/stories?deleted=missing");
+
+  const story = found[0] as {
+    id: number | string;
+    slug: string;
+    image_object_key: string | null;
+  };
+
+  const gallery = await sql`
+    SELECT object_key
+    FROM story_images
+    WHERE story_id = ${id}
+  `;
+
+  const settingsKey = `story_${story.slug.replaceAll("-", "_")}_object_key`;
+  const settings = await sql`
+    SELECT value FROM site_settings WHERE key = ${settingsKey} LIMIT 1
+  `;
+
+  const keys = new Set<string>();
+  if (story.image_object_key) keys.add(story.image_object_key);
+  for (const row of gallery) {
+    if (typeof row.object_key === "string") keys.add(row.object_key);
+  }
+  if (typeof settings[0]?.value === "string") keys.add(settings[0].value);
+
+  // Only delete objects from the story/gallery folders in our bucket.
+  for (const key of keys) {
+    if (
+      !key.startsWith("stories/") ||
+      key.includes("..") ||
+      key.startsWith("/") ||
+      key.includes("\\")
+    ) {
+      throw new Error("Unsafe storage key detected. Story was not deleted.");
+    }
+  }
+
+  // Delete database records first. Gallery rows are removed by ON DELETE CASCADE.
+  await sql`DELETE FROM stories WHERE id = ${id}`;
+
+  // Remove any legacy setting that pointed to this story's image.
+  await sql`DELETE FROM site_settings WHERE key = ${settingsKey}`;
+
+  let cleanupFailed = false;
+
+  if (keys.size > 0) {
+    let client: import("@aws-sdk/client-s3").S3Client | undefined;
+
+    try {
+      const endpoint = process.env.AWS_ENDPOINT_URL_S3;
+      const region = process.env.AWS_REGION;
+      const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+      const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+
+      if (!endpoint || !region || !accessKeyId || !secretAccessKey) {
+        throw new Error("Object Storage is not configured.");
+      }
+
+      const { S3Client, DeleteObjectCommand } = await import("@aws-sdk/client-s3");
+      client = new S3Client({
+        region,
+        endpoint,
+        forcePathStyle: true,
+        credentials: { accessKeyId, secretAccessKey },
+      });
+
+      for (const key of keys) {
+        try {
+          await client.send(new DeleteObjectCommand({
+            Bucket: "moyone",
+            Key: key,
+          }));
+        } catch (error) {
+          cleanupFailed = true;
+          console.error("Could not remove story image:", key, error);
+        }
+      }
+    } catch (error) {
+      cleanupFailed = true;
+      console.error("Story image cleanup failed:", error);
+    } finally {
+      client?.destroy();
+    }
+  }
+
+  revalidatePath("/");
+  revalidatePath("/stories");
+  revalidatePath("/admin");
+  revalidatePath("/admin/stories");
+
+  redirect(
+    cleanupFailed
+      ? "/admin/stories?deleted=1&cleanup=failed"
+      : "/admin/stories?deleted=1"
+  );
+}

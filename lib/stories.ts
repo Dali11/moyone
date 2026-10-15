@@ -24,9 +24,11 @@ type StoryRow = {
 };
 
 function mapStory(row: StoryRow): CommunityStory {
+  // Prefer the explicitly configured URL, including uploaded cover routes.
   let image = row.image_url || "";
 
-  if (row.image_object_key) {
+  // Fall back to the legacy story-image route only when no URL is configured.
+  if (!image && row.image_object_key) {
     const filename = row.image_object_key.split("/").pop() || "";
     const imageName = filename.replace(/\.[^.]+$/, "");
 
