@@ -44,12 +44,12 @@ export default async function EditStoryPage({
 
   return (
     <section className="mx-auto max-w-4xl">
-      <Link href="/admin/stories" className="text-sm font-semibold text-emerald-800 hover:underline">
+      <Link href="/admin/stories" className="text-sm font-semibold text-brand-800 hover:underline">
         ← Back to stories
       </Link>
       <div className="mt-4 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-emerald-800">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-800">
             Edit story
           </p>
           <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-900">
@@ -62,7 +62,7 @@ export default async function EditStoryPage({
       </div>
 
       {query.saved === "1" && (
-        <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm font-semibold text-emerald-800">
+        <p className="mt-5 rounded-xl border border-brand-200 bg-brand-50 p-3 text-sm font-semibold text-brand-800">
           Story saved successfully.
         </p>
       )}
@@ -80,7 +80,7 @@ export default async function EditStoryPage({
           <Link
             href={`/stories/${story.slug}`}
             target="_blank"
-            className="font-semibold text-emerald-800 hover:underline"
+            className="font-semibold text-brand-800 hover:underline"
           >
             View published story ↗
           </Link>

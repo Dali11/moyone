@@ -133,7 +133,7 @@ export function ProjectCoverUpload({
           value={altText}
           onChange={(event) => setAltText(event.target.value)}
           maxLength={250}
-          className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-emerald-700"
+          className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-brand-700"
           placeholder="Describe the image for accessibility"
         />
       </label>
@@ -180,11 +180,11 @@ export function ProjectCoverUpload({
           tabIndex={0}
           className={`cursor-pointer rounded-2xl border-2 border-dashed p-8 text-center transition sm:p-12 ${
             dragging
-              ? "border-emerald-600 bg-emerald-50"
-              : "border-slate-300 bg-slate-50 hover:border-emerald-500 hover:bg-emerald-50/50"
+              ? "border-brand-600 bg-brand-50"
+              : "border-slate-300 bg-slate-50 hover:border-brand-500 hover:bg-brand-50/50"
           }`}
         >
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-800">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-100 text-brand-800">
             <UploadCloud size={27} />
           </div>
           <p className="mt-4 font-bold text-slate-900">
@@ -218,13 +218,13 @@ export function ProjectCoverUpload({
           onDrop={onDrop}
           className={`rounded-xl border border-dashed p-4 ${
             dragging
-              ? "border-emerald-600 bg-emerald-50"
+              ? "border-brand-600 bg-brand-50"
               : "border-slate-200"
           }`}
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-sm text-slate-600">
-              <ImagePlus size={18} className="text-emerald-700" />
+              <ImagePlus size={18} className="text-brand-700" />
               Drop a new image here to replace the current cover.
             </div>
             <button
@@ -240,14 +240,14 @@ export function ProjectCoverUpload({
       )}
 
       {busy && (
-        <p className="flex items-center gap-2 text-sm text-emerald-800">
+        <p className="flex items-center gap-2 text-sm text-brand-800">
           <LoaderCircle size={17} className="animate-spin" />
           Uploading image…
         </p>
       )}
 
       {message && (
-        <p className="flex items-center gap-2 text-sm text-emerald-800">
+        <p className="flex items-center gap-2 text-sm text-brand-800">
           <CheckCircle2 size={17} />
           {message}
         </p>

@@ -174,11 +174,11 @@ export function StoryImageUploader({
         }}
         className={`cursor-pointer rounded-2xl border-2 border-dashed p-8 text-center transition ${
           dragging
-            ? "border-emerald-700 bg-emerald-50"
-            : "border-slate-300 bg-slate-50 hover:border-emerald-600 hover:bg-emerald-50/50"
+            ? "border-brand-700 bg-brand-50"
+            : "border-slate-300 bg-slate-50 hover:border-brand-600 hover:bg-brand-50/50"
         }`}
       >
-        <UploadCloud className="mx-auto h-9 w-9 text-emerald-800" />
+        <UploadCloud className="mx-auto h-9 w-9 text-brand-800" />
         <p className="mt-3 font-semibold text-slate-900">
           Drop your photos here or click to browse
         </p>
@@ -222,7 +222,7 @@ export function StoryImageUploader({
             type="button"
             disabled={busy}
             onClick={uploadFiles}
-            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-800 px-5 py-3 text-sm font-bold text-white hover:bg-emerald-900 disabled:opacity-60"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-800 px-5 py-3 text-sm font-bold text-white hover:bg-brand-900 disabled:opacity-60"
           >
             {busy ? (
               <LoaderCircle className="animate-spin" size={17} />
@@ -252,7 +252,7 @@ export function StoryImageUploader({
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <span className="absolute left-2 top-2 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold text-emerald-800 shadow">
+                  <span className="absolute left-2 top-2 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold text-brand-800 shadow">
                     Gallery image
                   </span>
                 </div>

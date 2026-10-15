@@ -37,7 +37,7 @@ export function ProjectDetail({
         <div className="container-moyone py-5">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--moyone-green)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--moyone-primary)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-4"
           >
             <ArrowLeft size={16} aria-hidden="true" />
             Back to projects
@@ -60,7 +60,7 @@ export function ProjectDetail({
               <span className="inline-flex items-center gap-2">
                 <MapPin
                   size={17}
-                  className="text-[var(--moyone-green)]"
+                  className="text-[var(--moyone-primary)]"
                   aria-hidden="true"
                 />
                 {project.location}
@@ -69,7 +69,7 @@ export function ProjectDetail({
               <span className="inline-flex items-center gap-2">
                 <BookOpen
                   size={17}
-                  className="text-[var(--moyone-green)]"
+                  className="text-[var(--moyone-primary)]"
                   aria-hidden="true"
                 />
                 {project.program}
@@ -78,14 +78,14 @@ export function ProjectDetail({
 
             <a
               href="#project-activities"
-              className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)]"
+              className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--moyone-primary)] px-5 py-3 text-sm font-bold text-white transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-primary)]"
             >
               Discover our activities
               <ArrowRight size={17} aria-hidden="true" />
             </a>
           </div>
 
-          <div className="relative aspect-[1.25] overflow-hidden rounded-2xl bg-emerald-50 shadow-sm sm:aspect-[1.4]">
+          <div className="relative aspect-[1.25] overflow-hidden rounded-2xl bg-brand-50 shadow-sm sm:aspect-[1.4]">
             <Image
               src={project.image}
               alt={project.imageAlt}
@@ -103,7 +103,7 @@ export function ProjectDetail({
           </div>
         </header>
 
-        <section className="border-y border-slate-200 bg-[#fbfcfa] py-12 sm:py-16">
+        <section className="border-y border-slate-200 bg-[#f8fafc] py-12 sm:py-16">
           <div className="container-moyone grid gap-10 lg:grid-cols-[minmax(0,1.7fr)_minmax(260px,0.8fr)] lg:gap-16">
             <div>
               <p className="section-label">About this project</p>
@@ -138,7 +138,7 @@ export function ProjectDetail({
                     >
                       <CheckCircle2
                         size={19}
-                        className="mt-0.5 shrink-0 text-[var(--moyone-green)]"
+                        className="mt-0.5 shrink-0 text-[var(--moyone-primary)]"
                         aria-hidden="true"
                       />
                       <span>{activity}</span>
@@ -176,7 +176,7 @@ export function ProjectDetail({
                   <dt className="flex items-center gap-2 text-sm font-bold text-slate-800">
                     <Users
                       size={17}
-                      className="text-[var(--moyone-green)]"
+                      className="text-[var(--moyone-primary)]"
                       aria-hidden="true"
                     />
                     Who this work is for
@@ -192,16 +192,16 @@ export function ProjectDetail({
                   href="https://moyone.org/images/MOYONE%20PROFILE%20FINAL.pdf"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm font-bold text-[var(--moyone-green)] underline underline-offset-4"
+                  className="text-sm font-bold text-[var(--moyone-primary)] underline underline-offset-4"
                 >
                   Read the MOYONE organizational profile
                 </a>
               </div>
 
-              <div className="mt-5 rounded-xl bg-emerald-50 p-4">
+              <div className="mt-5 rounded-xl bg-brand-50 p-4">
                 <HandHeart
                   size={22}
-                  className="text-[var(--moyone-green)]"
+                  className="text-[var(--moyone-primary)]"
                   aria-hidden="true"
                 />
                 <h3 className="mt-3 text-sm font-extrabold text-slate-900">
@@ -213,7 +213,7 @@ export function ProjectDetail({
                 </p>
                 <Link
                   href="/#contact"
-                  className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-green)] hover:gap-3"
+                  className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-primary)] hover:gap-3"
                 >
                   Contact us
                   <ArrowRight size={15} aria-hidden="true" />
@@ -238,7 +238,7 @@ export function ProjectDetail({
 
               <Link
                 href="/projects"
-                className="inline-flex w-fit items-center gap-2 py-2 text-sm font-bold text-[var(--moyone-green)] hover:gap-3"
+                className="inline-flex w-fit items-center gap-2 py-2 text-sm font-bold text-[var(--moyone-primary)] hover:gap-3"
               >
                 All projects
                 <ArrowRight size={16} aria-hidden="true" />
@@ -250,15 +250,15 @@ export function ProjectDetail({
                 <Link
                   key={related.slug}
                   href={`/projects/${related.slug}`}
-                  className="group rounded-xl border border-slate-200 p-5 transition hover:border-emerald-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--moyone-green)]"
+                  className="group rounded-xl border border-slate-200 p-5 transition hover:border-brand-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--moyone-primary)]"
                 >
-                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--moyone-green)]">
+                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--moyone-primary)]">
                     {related.program}
                   </p>
                   <h3 className="mt-2 text-lg font-extrabold leading-snug text-slate-900">
                     {related.title}
                   </h3>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-green)]">
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-primary)]">
                     Explore project
                     <ArrowRight
                       size={15}

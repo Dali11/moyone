@@ -14,7 +14,7 @@ export async function ProjectList() {
     <main>
       <SiteHeader />
 
-      <section className="overflow-hidden bg-[#fbfcfa]">
+      <section className="overflow-hidden bg-[#f8fafc]">
         <div className="container-moyone pb-12 pt-12 sm:pb-16 sm:pt-16 lg:pb-20 lg:pt-20">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className="max-w-3xl">
@@ -22,7 +22,7 @@ export async function ProjectList() {
 
               <h1 className="mt-3 text-4xl font-black leading-[1.08] tracking-tight text-[var(--moyone-ink)] sm:text-5xl lg:text-6xl">
                 Turning community action into{" "}
-                <span className="text-[var(--moyone-green)]">
+                <span className="text-[var(--moyone-primary)]">
                   lasting change.
                 </span>
               </h1>
@@ -36,7 +36,7 @@ export async function ProjectList() {
 
             <a
               href="#our-projects"
-              className="inline-flex min-h-12 w-fit items-center justify-center gap-2 rounded-lg bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)]"
+              className="inline-flex min-h-12 w-fit items-center justify-center gap-2 rounded-lg bg-[var(--moyone-primary)] px-5 py-3 text-sm font-bold text-white transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-primary)]"
             >
               Explore our work
               <ArrowRight size={17} aria-hidden="true" />
@@ -90,14 +90,14 @@ export async function ProjectList() {
               return (
                 <article
                   key={project.slug}
-                  className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl"
+                  className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl"
                 >
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="flex h-full flex-col rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[var(--moyone-green)]"
+                    className="flex h-full flex-col rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[var(--moyone-primary)]"
                     aria-label={`Explore ${project.title}`}
                   >
-                    <div className="relative aspect-[1.65/1] overflow-hidden bg-emerald-50">
+                    <div className="relative aspect-[1.65/1] overflow-hidden bg-brand-50">
                       <Image
                         src={image}
                         alt={project.imageAlt}
@@ -112,17 +112,17 @@ export async function ProjectList() {
                         </span>
                       )}
 
-                      <span className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-white/95 text-[var(--moyone-green)] shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <span className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-white/95 text-[var(--moyone-primary)] shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                         <ArrowRight size={18} aria-hidden="true" />
                       </span>
                     </div>
 
                     <div className="flex flex-1 flex-col p-5 sm:p-6">
-                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--moyone-green)]">
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--moyone-primary)]">
                         {project.program}
                       </p>
 
-                      <h3 className="mt-2 text-xl font-extrabold leading-snug tracking-tight text-[var(--moyone-ink)] transition-colors group-hover:text-[var(--moyone-green)]">
+                      <h3 className="mt-2 text-xl font-extrabold leading-snug tracking-tight text-[var(--moyone-ink)] transition-colors group-hover:text-[var(--moyone-primary)]">
                         {project.title}
                       </h3>
 
@@ -134,13 +134,13 @@ export async function ProjectList() {
                         <span className="inline-flex min-w-0 items-center gap-1.5 text-xs font-medium text-slate-500">
                           <MapPin
                             size={14}
-                            className="shrink-0 text-[var(--moyone-green)]"
+                            className="shrink-0 text-[var(--moyone-primary)]"
                             aria-hidden="true"
                           />
                           <span>{project.location}</span>
                         </span>
 
-                        <span className="shrink-0 text-xs font-bold text-[var(--moyone-green)]">
+                        <span className="shrink-0 text-xs font-bold text-[var(--moyone-primary)]">
                           Explore project
                         </span>
                       </div>

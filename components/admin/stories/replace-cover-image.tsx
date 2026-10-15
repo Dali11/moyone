@@ -74,7 +74,7 @@ export function ReplaceCoverImage({
   }
 
   return (
-    <section className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-5">
+    <section className="rounded-2xl border border-brand-200 bg-brand-50/40 p-5">
       <h3 className="text-base font-bold text-slate-900">Replace cover image</h3>
       <p className="mt-1 text-sm text-slate-600">
         Changes only the main image at the top of this story. Additional gallery images remain untouched.
@@ -121,7 +121,7 @@ export function ReplaceCoverImage({
                 type="button"
                 disabled={busy}
                 onClick={upload}
-                className="inline-flex items-center gap-2 rounded-xl bg-emerald-800 px-4 py-2.5 text-sm font-bold text-white disabled:opacity-60"
+                className="inline-flex items-center gap-2 rounded-xl bg-brand-800 px-4 py-2.5 text-sm font-bold text-white disabled:opacity-60"
               >
                 {busy && <LoaderCircle size={16} className="animate-spin" />}
                 {busy ? "Uploading…" : "Save new cover"}

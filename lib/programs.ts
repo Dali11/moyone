@@ -28,7 +28,7 @@ export const programs: Program[] = [
     icon: BookOpen,
     image: "/api/media/program/education",
     alt: "Illustrative scene of students studying together",
-    badge: "bg-emerald-700",
+    badge: "bg-brand-700",
   },
   {
     slug: "health-and-wellbeing",
@@ -38,7 +38,7 @@ export const programs: Program[] = [
     icon: HeartPulse,
     image: "/api/media/program/health-and-wellbeing",
     alt: "Illustrative concept: a health educator demonstrates handwashing",
-    badge: "bg-rose-600",
+    badge: "bg-[var(--moyone-accent)]",
   },
   {
     slug: "agriculture",
@@ -48,7 +48,7 @@ export const programs: Program[] = [
     icon: Sprout,
     image: "/api/media/program/agriculture",
     alt: "Illustrative scene of young farmers tending crops",
-    badge: "bg-emerald-800",
+    badge: "bg-[var(--moyone-secondary-strong)]",
   },
   {
     slug: "environment",
@@ -58,7 +58,7 @@ export const programs: Program[] = [
     icon: Leaf,
     image: "/api/media/program/environment",
     alt: "Illustrative scene of young people planting a tree",
-    badge: "bg-emerald-600",
+    badge: "bg-[var(--moyone-secondary-strong)]",
   },
   {
     slug: "youth-empowerment",
@@ -68,7 +68,7 @@ export const programs: Program[] = [
     icon: Users,
     image: "/api/media/program/youth-empowerment",
     alt: "Illustrative youth leadership workshop",
-    badge: "bg-emerald-700",
+    badge: "bg-brand-700",
   },
   {
     slug: "entrepreneurship",
@@ -78,6 +78,6 @@ export const programs: Program[] = [
     icon: ChartNoAxesColumnIncreasing,
     image: "/api/media/program/entrepreneurship",
     alt: "Illustrative young entrepreneur at a market stall",
-    badge: "bg-emerald-700",
+    badge: "bg-brand-700",
   },
 ];

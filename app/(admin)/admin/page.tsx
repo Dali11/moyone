@@ -32,11 +32,11 @@ export default async function AdminDashboard() {
     <div className="mx-auto max-w-7xl">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800">Overview</p>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">Overview</p>
           <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-900">Dashboard</h1>
           <p className="mt-2 text-sm text-slate-500">Manage MOYONE's website and organizational content.</p>
         </div>
-        <Link href="/admin/stories" className="inline-flex items-center justify-center rounded-xl bg-emerald-800 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-900">
+        <Link href="/admin/stories" className="inline-flex items-center justify-center rounded-xl bg-brand-800 px-4 py-3 text-sm font-bold text-white hover:bg-brand-900">
           Manage stories
         </Link>
       </div>
@@ -48,7 +48,7 @@ export default async function AdminDashboard() {
             <article key={stat.label} className="rounded-2xl border border-slate-200 bg-white p-5">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-slate-500">{stat.label}</p>
-                <Icon size={19} className="text-emerald-800" />
+                <Icon size={19} className="text-brand-800" />
               </div>
               <p className="mt-4 text-3xl font-black text-slate-900">{stat.value}</p>
             </article>
@@ -64,13 +64,13 @@ export default async function AdminDashboard() {
           {modules.map((module) => {
             const Icon = module.icon;
             return (
-              <Link key={module.title} href={module.href} className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-sm">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-800">
+              <Link key={module.title} href={module.href} className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-800">
                   <Icon size={20} />
                 </div>
                 <h3 className="mt-4 font-extrabold text-slate-900">{module.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-slate-500">{module.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-emerald-800">
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand-800">
                   Open module <ArrowUpRight size={15} />
                 </span>
               </Link>

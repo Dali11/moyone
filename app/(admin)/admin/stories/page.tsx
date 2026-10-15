@@ -52,7 +52,7 @@ export default async function AdminStoriesPage({
     <section className="mx-auto max-w-7xl">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">
             Content management
           </p>
           <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-900">
@@ -65,7 +65,7 @@ export default async function AdminStoriesPage({
         {canEdit && (
           <Link
             href="/admin/stories/new"
-            className="rounded-xl bg-emerald-800 px-5 py-3 text-center text-sm font-bold text-white hover:bg-emerald-900"
+            className="rounded-xl bg-brand-800 px-5 py-3 text-center text-sm font-bold text-white hover:bg-brand-900"
           >
             + New story
           </Link>
@@ -73,7 +73,7 @@ export default async function AdminStoriesPage({
       </div>
 
       {filters.deleted === "1" && (
-        <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
+        <p className="mt-5 rounded-xl border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900">
           Story deleted. {filters.cleanup === "failed"
             ? "Warning: some stored image files could not be removed and may need cleanup."
             : "Associated gallery records and stored images were cleaned up."}
@@ -104,7 +104,7 @@ export default async function AdminStoriesPage({
           name="q"
           defaultValue={q}
           placeholder="Search titles or slugs…"
-          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-emerald-700"
+          className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none focus:border-brand-700"
         />
         <select
           name="status"
@@ -145,7 +145,7 @@ export default async function AdminStoriesPage({
               </div>
               <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-bold ${
                 story.status === "published"
-                  ? "bg-emerald-50 text-emerald-800"
+                  ? "bg-brand-50 text-brand-800"
                   : story.status === "draft"
                     ? "bg-amber-50 text-amber-800"
                     : "bg-slate-100 text-slate-600"
@@ -173,7 +173,7 @@ export default async function AdminStoriesPage({
               {canEdit && (
                 <Link
                   href={`/admin/stories/${story.id}/edit`}
-                  className="font-semibold text-emerald-800 hover:underline"
+                  className="font-semibold text-brand-800 hover:underline"
                 >
                   Edit
                 </Link>
@@ -242,7 +242,7 @@ export default async function AdminStoriesPage({
                   <td className="px-5 py-4">
                     <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${
                       story.status === "published"
-                        ? "bg-emerald-50 text-emerald-800"
+                        ? "bg-brand-50 text-brand-800"
                         : story.status === "draft"
                           ? "bg-amber-50 text-amber-800"
                           : "bg-slate-100 text-slate-600"
@@ -260,7 +260,7 @@ export default async function AdminStoriesPage({
                       {canEdit && (
                         <Link
                           href={`/admin/stories/${story.id}/edit`}
-                          className="font-semibold text-emerald-800 hover:underline"
+                          className="font-semibold text-brand-800 hover:underline"
                         >
                           Edit
                         </Link>

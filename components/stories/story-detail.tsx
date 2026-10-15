@@ -19,7 +19,7 @@ export function StoryDetail({
       <SiteHeader />
       <article>
         <div className="container-moyone py-5">
-          <Link href="/stories" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--moyone-green)] hover:underline">
+          <Link href="/stories" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--moyone-primary)] hover:underline">
             <ArrowLeft size={16} /> Back to stories
           </Link>
         </div>
@@ -34,13 +34,13 @@ export function StoryDetail({
            
           </div>
         </header>
-        <section className="border-y border-slate-200 bg-[#fbfcfa] py-10 sm:py-14">
+        <section className="border-y border-slate-200 bg-[#f8fafc] py-10 sm:py-14">
           <div className="container-moyone max-w-3xl">
             <h2 className="mt-8 text-2xl font-black tracking-tight">{story.title}</h2>
             <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
               {story.details.map((detail) => <p key={detail}>{detail}</p>)}
             </div>
-            <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">Our impact figures cover 2021–2025. <a className="font-semibold text-[var(--moyone-green)] underline" href="https://moyone.org/images/MOYONE%20PROFILE%20FINAL.pdf">Read our organizational profile</a>.</p>
+            <p className="mt-6 border-t border-slate-200 pt-4 text-xs text-slate-500">Our impact figures cover 2021–2025. <a className="font-semibold text-[var(--moyone-primary)] underline" href="https://moyone.org/images/MOYONE%20PROFILE%20FINAL.pdf">Read our organizational profile</a>.</p>
           </div>
 
           {gallery.length > 0 && (

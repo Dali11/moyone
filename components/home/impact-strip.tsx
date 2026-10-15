@@ -36,7 +36,7 @@ export function ImpactStrip() {
   return (
     <section
       id="impact"
-      className="border-b border-slate-200 bg-[#fbfcfa] py-7 sm:py-8"
+      className="border-b border-slate-200 bg-[#f8fafc] py-7 sm:py-8"
     >
       <div className="container-moyone grid grid-cols-2 gap-x-3 gap-y-7 sm:grid-cols-4 sm:gap-0">
         {impact.map(({ number, label, note, icon: Icon }, index) => (
@@ -47,12 +47,12 @@ export function ImpactStrip() {
             }`}
           >
             <div className="flex items-start gap-3">
-              <div className="hidden h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-[var(--moyone-green)] shadow-sm ring-1 ring-slate-100 sm:grid">
+              <div className="hidden h-12 w-12 shrink-0 place-items-center rounded-full bg-white text-[var(--moyone-primary)] shadow-sm ring-1 ring-slate-100 sm:grid">
                 <Icon size={24} />
               </div>
 
               <div className="min-w-0">
-                <div className="text-[26px] font-black leading-none tracking-tight text-[var(--moyone-green-dark)] sm:text-[27px]">
+                <div className="text-[26px] font-black leading-none tracking-tight text-[var(--moyone-primary-dark)] sm:text-[27px]">
                   {number}
                 </div>
 

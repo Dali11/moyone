@@ -49,7 +49,7 @@ export function SiteHeader() {
         <a href="/#top" className="flex shrink-0 items-center gap-2.5" onClick={() => setOpen(false)}>
           <Image src="/images/moyone-logo.png" alt="MOYONE" width={48} height={48} priority className="h-10 w-10 object-contain sm:h-11 sm:w-11" />
           <div className="leading-none">
-            <div className="text-[25px] font-black tracking-[-.045em] text-[var(--moyone-green-dark)] sm:text-[28px]">MOYONE</div>
+            <div className="text-[25px] font-black tracking-[-.045em] text-[var(--moyone-primary)] sm:text-[28px]">MOYONE</div>
             <div className="mt-1 text-[8px] font-bold tracking-tight text-slate-600">Mobile Youth Network Organization</div>
           </div>
         </a>
@@ -62,13 +62,13 @@ export function SiteHeader() {
                 key={label}
                 href={href}
                 aria-current={active ? "page" : undefined}
-                className={`relative py-2 text-[12px] font-semibold transition hover:text-[var(--moyone-green)] ${active ? "text-[var(--moyone-green)] after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:bg-[var(--moyone-green)]" : "text-slate-800"}`}
+                className={`relative py-2 text-[12px] font-semibold transition hover:text-[var(--moyone-primary)] ${active ? "text-[var(--moyone-primary)] after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:bg-[var(--moyone-primary)]" : "text-slate-800"}`}
               >
                 {label}
               </a>
             );
           })}
-          <a href="/contact#inquiry" className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[var(--moyone-green-dark)] px-4 py-2.5 text-[12px] font-bold text-white transition hover:bg-[var(--moyone-green)]">Partner With Us <ArrowRight size={15} /></a>
+          <a href="/contact#inquiry" className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[var(--moyone-primary-dark)] px-4 py-2.5 text-[12px] font-bold text-white transition hover:bg-[var(--moyone-primary)]">Partner With Us <ArrowRight size={15} /></a>
         </nav>
 
         <button
@@ -77,7 +77,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
-          className="grid h-11 w-11 place-items-center rounded-full bg-slate-100 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--moyone-green)] lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full bg-slate-100 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--moyone-primary)] lg:hidden"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -92,13 +92,13 @@ export function SiteHeader() {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 onClick={() => setOpen(false)}
-                className={`rounded-xl px-4 py-3 font-semibold hover:bg-slate-50 ${active ? "bg-emerald-50 text-[var(--moyone-green)]" : "text-slate-800"}`}
+                className={`rounded-xl px-4 py-3 font-semibold hover:bg-slate-50 ${active ? "bg-brand-50 text-[var(--moyone-primary)]" : "text-slate-800"}`}
               >
                 {label}
               </a>
             );
           })}
-          <a href="/contact#inquiry" onClick={() => setOpen(false)} className="mt-2 rounded-xl bg-[var(--moyone-green)] px-4 py-3 text-center font-bold text-white">Partner With Us</a>
+          <a href="/contact#inquiry" onClick={() => setOpen(false)} className="mt-2 rounded-xl bg-[var(--moyone-primary)] px-4 py-3 text-center font-bold text-white">Partner With Us</a>
         </div>
       </nav>}
     </header>

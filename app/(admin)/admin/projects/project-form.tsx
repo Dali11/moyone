@@ -27,7 +27,7 @@ type ProjectFormProps = {
 };
 
 const inputClass =
-  "mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-700 focus:ring-2 focus:ring-emerald-100";
+  "mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-100";
 
 const labelClass = "block text-sm font-semibold text-slate-700";
 
@@ -243,7 +243,7 @@ export function ProjectForm({
 
         <button
           type="submit"
-          className="rounded-xl bg-emerald-800 px-6 py-3 text-sm font-bold text-white hover:bg-emerald-900"
+          className="rounded-xl bg-brand-800 px-6 py-3 text-sm font-bold text-white hover:bg-brand-900"
         >
           {mode === "create" ? "Create project" : "Save changes"}
         </button>

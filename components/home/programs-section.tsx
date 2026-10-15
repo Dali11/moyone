@@ -13,6 +13,7 @@ export function ProgramsSection() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="section-label">Our programs</p>
+            <span className="accent-rule mt-2" aria-hidden="true" />
 
             <h2 className="mt-2 max-w-2xl text-3xl font-black tracking-tight text-[var(--moyone-ink)] sm:text-4xl">
               Key Areas of Our Work
@@ -27,7 +28,7 @@ export function ProgramsSection() {
 
           <Link
             href="/programs"
-            className="inline-flex w-fit items-center gap-2 rounded-md py-2 text-sm font-bold text-[var(--moyone-green)] transition hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)]"
+            className="inline-flex w-fit items-center gap-2 rounded-md py-2 text-sm font-bold text-[var(--moyone-primary)] transition hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-primary)]"
           >
             Explore All Programs
             <ArrowRight size={17} aria-hidden="true" />
@@ -39,14 +40,14 @@ export function ProgramsSection() {
             ({ slug, title, text, image, alt }) => (
               <article
                 key={slug}
-                className="group min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-lg"
+                className="group min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:border-brand-200 hover:shadow-lg"
               >
                 <Link
                   href={`/programs/${slug}`}
-                  className="flex h-full flex-col rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[var(--moyone-green)]"
+                  className="flex h-full flex-col rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[var(--moyone-primary)]"
                   aria-label={`${title}: learn more about this program`}
                 >
-                  <div className="relative aspect-[2.05/1] overflow-hidden bg-emerald-50 sm:aspect-[1.75/1]">
+                  <div className="relative aspect-[2.05/1] overflow-hidden bg-brand-50 sm:aspect-[1.75/1]">
                     <Image
                       src={image}
                       alt={alt}
@@ -64,7 +65,7 @@ export function ProgramsSection() {
                   <div className="flex flex-1 flex-col p-3 sm:p-4">
                     
 
-                    <h3 className="text-sm font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-[var(--moyone-green)]">
+                    <h3 className="text-sm font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-[var(--moyone-primary)]">
                       {title}
                     </h3>
 
@@ -72,7 +73,7 @@ export function ProgramsSection() {
                       {text}
                     </p>
 
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[var(--moyone-green)] sm:mt-4">
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[var(--moyone-primary)] sm:mt-4">
                       Learn more
                       <ArrowRight
                         size={14}

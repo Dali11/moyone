@@ -52,7 +52,7 @@ export function LoginForm() {
           autoComplete="username"
           required
           maxLength={254}
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-100"
+          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-700 focus:ring-2 focus:ring-brand-100"
           placeholder="you@moyone.org"
         />
       </div>
@@ -68,7 +68,7 @@ export function LoginForm() {
           autoComplete="current-password"
           required
           maxLength={128}
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-100"
+          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-brand-700 focus:ring-2 focus:ring-brand-100"
           placeholder="Enter your password"
         />
       </div>
@@ -82,7 +82,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-xl bg-emerald-800 px-4 py-3 font-bold text-white transition hover:bg-emerald-900 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-xl bg-brand-800 px-4 py-3 font-bold text-white transition hover:bg-brand-900 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? "Signing in..." : "Sign in securely"}
       </button>

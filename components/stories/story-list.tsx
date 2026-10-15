@@ -11,7 +11,7 @@ export async function StoryList() {
   return (
     <main>
       <SiteHeader />
-      <section className="bg-[#fbfcfa] py-12 sm:py-16">
+      <section className="bg-[#f8fafc] py-12 sm:py-16">
         <div className="container-moyone">
           <p className="section-label">Program updates</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">Our work in the community</h1>
@@ -29,7 +29,7 @@ export async function StoryList() {
                   <h2 className="mt-2 text-xl font-extrabold text-slate-900">{story.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-slate-600">{story.text}</p>
                   
-                  <Link href={`/stories/${story.slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-green)] hover:underline">
+                  <Link href={`/stories/${story.slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-primary)] hover:underline">
                     Read update <ArrowRight size={16} />
                   </Link>
                 </div>

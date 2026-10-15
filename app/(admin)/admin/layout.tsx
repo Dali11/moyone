@@ -13,7 +13,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
   }
 
   return (
-    <div className="min-h-screen bg-[#f7f9f6] lg:flex">
+    <div className="min-h-screen bg-[#f8fafc] lg:flex">
       <div className="hidden lg:block">
         <AdminSidebar />
       </div>

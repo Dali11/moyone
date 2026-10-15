@@ -68,7 +68,7 @@ export function AdminSidebar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-900"
+                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-brand-50 hover:text-brand-900"
                   >
                     <Icon size={17} strokeWidth={1.8} />
                     {item.label}
@@ -81,7 +81,7 @@ export function AdminSidebar() {
       </nav>
 
       <div className="border-t border-slate-100 p-4">
-        <Link href="/" className="text-sm font-medium text-slate-500 hover:text-emerald-800">
+        <Link href="/" className="text-sm font-medium text-slate-500 hover:text-brand-800">
           ← View public website
         </Link>
       </div>

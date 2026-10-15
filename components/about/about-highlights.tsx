@@ -13,7 +13,7 @@ export function AboutHighlights() {
       <div className="container-moyone grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-0">
         {highlights.map(({ title, detail, icon: Icon }, index) => (
           <div key={title} className={`flex items-center gap-3 sm:px-5 ${index > 0 ? "sm:border-l sm:border-slate-200" : "sm:pl-0"}`}>
-            <Icon size={30} strokeWidth={2.2} className="shrink-0 text-[var(--moyone-green)]" aria-hidden="true" />
+            <Icon size={30} strokeWidth={2.2} className="shrink-0 text-[var(--moyone-primary)]" aria-hidden="true" />
             <div><h2 className="text-xs font-extrabold text-slate-900 sm:text-sm">{title}</h2><p className="mt-1 text-[10px] leading-4 text-slate-600 sm:text-xs">{detail}</p></div>
           </div>
         ))}

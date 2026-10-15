@@ -18,7 +18,7 @@ type StoryFormProps = {
 };
 
 const inputClass =
-  "mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-emerald-700 focus:ring-2 focus:ring-emerald-100";
+  "mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-brand-700 focus:ring-2 focus:ring-brand-100";
 
 export function StoryForm({ action, story }: StoryFormProps) {
   return (
@@ -118,7 +118,7 @@ export function StoryForm({ action, story }: StoryFormProps) {
           </span>
           {story?.image_url && (
             <span className="mt-3 block">
-              <span className="mb-2 block text-xs font-bold uppercase tracking-wide text-emerald-800">
+              <span className="mb-2 block text-xs font-bold uppercase tracking-wide text-brand-800">
                 Current cover preview
               </span>
               <img
@@ -166,7 +166,7 @@ export function StoryForm({ action, story }: StoryFormProps) {
       <div className="flex flex-wrap items-center gap-3 border-t border-slate-200 pt-5">
         <button
           type="submit"
-          className="rounded-xl bg-emerald-800 px-5 py-3 text-sm font-bold text-white hover:bg-emerald-900"
+          className="rounded-xl bg-brand-800 px-5 py-3 text-sm font-bold text-white hover:bg-brand-900"
         >
           {story ? "Save changes" : "Create story"}
         </button>

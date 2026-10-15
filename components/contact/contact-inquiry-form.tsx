@@ -29,15 +29,15 @@ export function ContactInquiryForm() {
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <label className="text-sm font-semibold text-slate-800">
           Your name
-          <input name="name" autoComplete="name" required className="mt-2 block w-full rounded-lg border border-slate-300 px-3.5 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/15" placeholder="Name" />
+          <input name="name" autoComplete="name" required className="mt-2 block w-full rounded-lg border border-slate-300 px-3.5 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15" placeholder="Name" />
         </label>
         <label className="text-sm font-semibold text-slate-800">
           Email address
-          <input name="email" type="email" autoComplete="email" required className="mt-2 block w-full rounded-lg border border-slate-300 px-3.5 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/15" placeholder="you@example.com" />
+          <input name="email" type="email" autoComplete="email" required className="mt-2 block w-full rounded-lg border border-slate-300 px-3.5 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15" placeholder="you@example.com" />
         </label>
         <label className="text-sm font-semibold text-slate-800 sm:col-span-2">
           I’m interested in
-          <select name="interest" defaultValue="Partnership" className="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-3 font-normal outline-none transition focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/15">
+          <select name="interest" defaultValue="Partnership" className="mt-2 block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-3 font-normal outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15">
             <option>Partnership</option>
             <option>Volunteering</option>
             <option>Supporting our work</option>
@@ -47,14 +47,14 @@ export function ContactInquiryForm() {
         </label>
         <label className="text-sm font-semibold text-slate-800 sm:col-span-2">
           Your message
-          <textarea name="message" required rows={5} className="mt-2 block w-full resize-y rounded-lg border border-slate-300 px-3.5 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/15" placeholder="How would you like to work with MOYONE?" />
+          <textarea name="message" required rows={5} className="mt-2 block w-full resize-y rounded-lg border border-slate-300 px-3.5 py-3 font-normal outline-none transition placeholder:text-slate-400 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15" placeholder="How would you like to work with MOYONE?" />
         </label>
       </div>
 
-      <button type="submit" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-green-dark)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">
+      <button type="submit" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[var(--moyone-primary)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-primary-dark)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700">
         Prepare email <ArrowRight size={16} />
       </button>
-      {sent && <p role="status" className="mt-3 text-sm text-emerald-800">Your email app should open with the inquiry ready. If it doesn’t, email <a className="font-semibold underline" href="mailto:mobileyouthnetwork@gmail.com">mobileyouthnetwork@gmail.com</a>.</p>}
+      {sent && <p role="status" className="mt-3 text-sm text-brand-800">Your email app should open with the inquiry ready. If it doesn’t, email <a className="font-semibold underline" href="mailto:mobileyouthnetwork@gmail.com">mobileyouthnetwork@gmail.com</a>.</p>}
     </form>
   );
 }

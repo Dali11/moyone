@@ -6,19 +6,20 @@ export function FeaturedProject() {
   return (
     <section
       aria-labelledby="featured-project-title"
-      className="border-y border-slate-200 bg-[#fbfcfa] py-12 sm:py-16 lg:py-20"
+      className="border-y border-slate-200 bg-[#f8fafc] py-12 sm:py-16 lg:py-20"
     >
       <div className="container-moyone">
         <div className="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="section-label">Our work in action</p>
+            <span className="accent-rule mt-2" aria-hidden="true" />
             <h2 className="mt-2 text-2xl font-black tracking-tight text-[var(--moyone-ink)] sm:text-3xl">
               Projects making a difference
             </h2>
           </div>
           <Link
             href="/projects"
-            className="inline-flex w-fit items-center gap-2 py-2 text-sm font-bold text-[var(--moyone-green)] transition hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)]"
+            className="inline-flex w-fit items-center gap-2 py-2 text-sm font-bold text-[var(--moyone-primary)] transition hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-primary)]"
           >
             Explore our projects
             <ArrowRight size={16} aria-hidden="true" />
@@ -26,7 +27,7 @@ export function FeaturedProject() {
         </div>
 
         <article className="grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-2">
-          <div className="relative min-h-[250px] overflow-hidden bg-emerald-50 sm:min-h-[360px] lg:min-h-[420px]">
+          <div className="relative min-h-[250px] overflow-hidden bg-brand-50 sm:min-h-[360px] lg:min-h-[420px]">
             <Image
               src="/api/media/program/education"
               alt="Illustrative concept of a volunteer distributing school materials to learners"
@@ -41,7 +42,7 @@ export function FeaturedProject() {
           </div>
 
           <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10 xl:p-12">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--moyone-green)]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--moyone-primary)]">
               Project spotlight
             </p>
 
@@ -53,18 +54,18 @@ export function FeaturedProject() {
             </h3>
 
             <div className="mt-5 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-semibold text-slate-700">
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-2 text-xs font-semibold text-slate-700">
                 <MapPin
                   size={15}
-                  className="text-[var(--moyone-green)]"
+                  className="text-[var(--moyone-primary)]"
                   aria-hidden="true"
                 />
                 Mangochi, Malawi
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-semibold text-slate-700">
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-2 text-xs font-semibold text-slate-700">
                 <BookOpen
                   size={15}
-                  className="text-[var(--moyone-green)]"
+                  className="text-[var(--moyone-primary)]"
                   aria-hidden="true"
                 />
                 Education
@@ -86,7 +87,7 @@ export function FeaturedProject() {
             <div className="mt-7">
               <Link
                 href="/projects/back-to-school-initiative"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[var(--moyone-green)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-green-dark)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-green)] sm:w-fit"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[var(--moyone-primary)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--moyone-primary-dark)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--moyone-primary)] sm:w-fit"
               >
                 Explore this project
                 <ArrowRight size={17} aria-hidden="true" />

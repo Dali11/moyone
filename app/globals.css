@@ -1,12 +1,39 @@
 @import "tailwindcss";
 
+/*
+ * MOYONE brand palette, sampled from public/images/moyone-logo.png.
+ * Primary: logo blue #0770b4 (outer ring, dominant colour).
+ * Accent: logo red #fa060a (star and wordmark). Decorative only; text uses -strong.
+ * Secondary: logo green #59b647 (hands). Used for Agriculture/Environment and dark-background highlights.
+ * Brand scale is a Tailwind theme so bg-brand-600, text-brand-700 etc. are available.
+ */
+@theme {
+  --color-brand-50: #f0f7fc;
+  --color-brand-100: #dcedf9;
+  --color-brand-200: #b9dbf1;
+  --color-brand-300: #8ac2e6;
+  --color-brand-400: #5aa6d6;
+  --color-brand-500: #2a8bc6;
+  --color-brand-600: #0770b4;
+  --color-brand-700: #05598f;
+  --color-brand-800: #074a78;
+  --color-brand-900: #073a5f;
+  --color-brand-950: #05243b;
+}
+
 :root {
-  --moyone-green: #08783f;
-  --moyone-green-dark: #04552d;
-  --moyone-lime: #71d98a;
-  --moyone-ink: #0c1f17;
-  --moyone-muted: #61736b;
-  --moyone-cream: #f5f8f5;
+  --moyone-primary: var(--color-brand-600);
+  --moyone-primary-dark: var(--color-brand-700);
+  --moyone-primary-deep: var(--color-brand-900);
+  --moyone-accent: #fa060a;
+  --moyone-accent-strong: #c2050a;
+  --moyone-secondary: #59b647;
+  --moyone-secondary-strong: #2f7d2a;
+  --moyone-secondary-light: #78c147;
+  --moyone-ink: #0d1d2c;
+  --moyone-muted: #5b6b7b;
+  --moyone-cream: #f5f8fb;
+  --moyone-surface: #f8fafc;
 }
 
 * { box-sizing: border-box; }
@@ -23,13 +50,22 @@ button, a { -webkit-tap-highlight-color: transparent; }
   text-transform: uppercase;
 }
 
+/* Short red accent rule for headings and eyebrows (logo accent). */
+.accent-rule {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--moyone-accent);
+}
+
 .container-moyone {
   width: min(1180px, calc(100% - 32px));
   margin-inline: auto;
 }
 
 .hero-bg {
-  background: #173d2d;
+  background: #073a5f;
 }
 
 .hero-photo {
@@ -41,10 +77,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero-shade {
   background: linear-gradient(
     90deg,
-    rgba(4, 24, 17, 0.82) 0%,
-    rgba(4, 24, 17, 0.68) 34%,
-    rgba(4, 24, 17, 0.3) 62%,
-    rgba(4, 24, 17, 0.08) 100%
+    rgba(5, 36, 59, 0.82) 0%,
+    rgba(5, 36, 59, 0.68) 34%,
+    rgba(5, 36, 59, 0.3) 62%,
+    rgba(5, 36, 59, 0.08) 100%
   );
 }
 
@@ -52,13 +88,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero-shade {
     background: linear-gradient(
       180deg,
-      rgba(4, 24, 17, 0.56) 0%,
-      rgba(4, 24, 17, 0.6) 35%,
-      rgba(4, 24, 17, 0.78) 100%
+      rgba(5, 36, 59, 0.56) 0%,
+      rgba(5, 36, 59, 0.6) 35%,
+      rgba(5, 36, 59, 0.78) 100%
     );
   }
 }
-  .hero-shade { background: linear-gradient(90deg, rgba(4, 24, 17, .78), rgba(4, 24, 17, .48) 68%, rgba(4, 24, 17, .24)); }
 
 .noise::after {
   content: "";

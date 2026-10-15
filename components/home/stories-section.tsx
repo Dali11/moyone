@@ -6,14 +6,15 @@ export async function StoriesSection() {
   const stories = await getPublishedStories();
 
   return (
-    <section id="stories" className="border-y border-slate-200 bg-[#fbfcfa] py-12 sm:py-14">
+    <section id="stories" className="border-y border-slate-200 bg-[#f8fafc] py-12 sm:py-14">
       <div className="container-moyone">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <p className="section-label">Program updates</p>
+            <span className="accent-rule mt-2" aria-hidden="true" />
             <h2 className="mt-1 text-3xl font-black tracking-tight sm:text-[32px]">Our work in the community</h2>
           </div>
-          <Link href="/stories" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--moyone-green)] underline decoration-emerald-200 underline-offset-4">
+          <Link href="/stories" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--moyone-primary)] underline decoration-brand-200 underline-offset-4">
             View All Stories <span aria-hidden="true">→</span>
           </Link>
         </div>
@@ -25,7 +26,7 @@ export async function StoriesSection() {
               </div>
               <div className="p-3 sm:p-4">
                 <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">{subject}</p>
-                <Link href={`/stories/${slug}`} className="mt-1 block text-sm font-extrabold leading-tight hover:text-[var(--moyone-green)]">{title}</Link>
+                <Link href={`/stories/${slug}`} className="mt-1 block text-sm font-extrabold leading-tight hover:text-[var(--moyone-primary)]">{title}</Link>
                 <p className="mt-1.5 text-[11px] leading-[1.4] text-slate-600">{text}</p>
               </div>
             </article>

@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function AdminLoginPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#f4f7f2] px-5 py-12">
+    <main className="flex min-h-screen items-center justify-center bg-[#f5f8fb] px-5 py-12">
       <div className="w-full max-w-md">
-        <a href="/" className="text-sm font-bold text-emerald-800 hover:underline">
+        <a href="/" className="text-sm font-bold text-brand-800 hover:underline">
           ← Back to MOYONE website
         </a>
 
@@ -25,7 +25,7 @@ export default function AdminLoginPage() {
             className="h-auto max-h-12 w-auto max-w-[150px] object-contain object-left"
           />
 
-          <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-emerald-800">
+          <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-brand-800">
             Administration
           </p>
 

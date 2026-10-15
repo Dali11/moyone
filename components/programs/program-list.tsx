@@ -9,7 +9,7 @@ export function ProgramList() {
   return (
     <main>
       <SiteHeader />
-      <section className="bg-[#fbfcfa] py-12 sm:py-16">
+      <section className="bg-[#f8fafc] py-12 sm:py-16">
         <div className="container-moyone">
           <p className="section-label">Our programs</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight sm:text-5xl">Key Areas of Our Work</h1>
@@ -26,9 +26,9 @@ export function ProgramList() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <h2 className="text-lg font-extrabold text-slate-900"><Link href={`/programs/${slug}`} className="hover:text-[var(--moyone-green)]">{title}</Link></h2>
+                  <h2 className="text-lg font-extrabold text-slate-900"><Link href={`/programs/${slug}`} className="hover:text-[var(--moyone-primary)]">{title}</Link></h2>
                   <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
-                  <Link href={`/programs/${slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-green)] hover:underline">
+                  <Link href={`/programs/${slug}`} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-primary)] hover:underline">
                     Learn about this program <ArrowRight size={16} />
                   </Link>
                 </div>

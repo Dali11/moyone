@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export default function NewStoryPage() {
   return (
     <section className="mx-auto max-w-4xl">
-      <Link href="/admin/stories" className="text-sm font-semibold text-emerald-800 hover:underline">
+      <Link href="/admin/stories" className="text-sm font-semibold text-brand-800 hover:underline">
         ← Back to stories
       </Link>
       <h1 className="mt-4 text-3xl font-black tracking-tight text-slate-900">

@@ -83,14 +83,14 @@ export default async function EditProjectPage({
     <section className="mx-auto max-w-7xl">
       <Link
         href="/admin/projects"
-        className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-800"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-brand-800"
       >
         <ArrowLeft size={16} />
         Back to projects
       </Link>
 
       <div className="mb-7 mt-5">
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">
           Content management
         </p>
         <h1 className="mt-2 break-words text-3xl font-black tracking-tight text-slate-900">
@@ -102,7 +102,7 @@ export default async function EditProjectPage({
       </div>
 
       {filters.saved === "1" && (
-        <p className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
+        <p className="mb-6 rounded-xl border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900">
           Project changes saved successfully.
         </p>
       )}

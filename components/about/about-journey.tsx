@@ -19,19 +19,19 @@ const outcomes = [
 export function AboutJourney() {
   return (
     <>
-      <section className="border-y border-slate-200 bg-[#fbfcfa] py-10 sm:py-14">
+      <section className="border-y border-slate-200 bg-[#f8fafc] py-10 sm:py-14">
         <div className="container-moyone grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-14">
           <div>
             <p className="section-label">Our journey</p>
             <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Growing with our community</h2>
             <p className="mt-4 text-sm leading-6 text-slate-600">Since our founding in Mangochi, we have grown our youth-led work through education, leadership and community development.</p>
-            <Link href="/programs" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-green)] hover:underline">Explore our programs <ArrowRight size={16} /></Link>
+            <Link href="/programs" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[var(--moyone-primary)] hover:underline">Explore our programs <ArrowRight size={16} /></Link>
           </div>
           <ol className="grid gap-3 sm:grid-cols-3">
             {milestones.map(({ year, detail, icon: Icon }) => (
               <li key={year} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <Icon size={23} className="text-[var(--moyone-green)]" aria-hidden="true" />
-                <p className="mt-3 text-xl font-black text-[var(--moyone-green-dark)]">{year}</p>
+                <Icon size={23} className="text-[var(--moyone-primary)]" aria-hidden="true" />
+                <p className="mt-3 text-xl font-black text-[var(--moyone-primary-dark)]">{year}</p>
                 <p className="mt-1 text-xs leading-5 text-slate-600">{detail}</p>
               </li>
             ))}
@@ -48,8 +48,8 @@ export function AboutJourney() {
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {outcomes.map(({ value, detail, icon: Icon }) => (
               <article key={detail} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <Icon size={22} className="text-[var(--moyone-green)]" aria-hidden="true" />
-                <p className="mt-3 text-2xl font-black tracking-tight text-[var(--moyone-green-dark)]">{value}</p>
+                <Icon size={22} className="text-[var(--moyone-primary)]" aria-hidden="true" />
+                <p className="mt-3 text-2xl font-black tracking-tight text-[var(--moyone-primary-dark)]">{value}</p>
                 <p className="mt-1 text-[11px] leading-4 text-slate-600">{detail}</p>
               </article>
             ))}
